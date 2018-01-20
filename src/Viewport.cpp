@@ -5388,13 +5388,13 @@ BACKGROUND_MASK *BACKGROUND_LIB::MaskExists(ui32 graphicID, ui32 masknum)
   ui32 offset;
   i32 idx;
   idx = BackgroundGraphicExists(graphicID, 4, &actualSize, false);
-  if (idx < 0) return false;
+  if (idx < 0) return 0;
   pGraphic = (ui32 *)backgroundGraphics[idx].data;
-  if (*pGraphic <= masknum) return false;
-  if (4*masknum + 8 > actualSize) return false; // No room for the offset!
+  if (*pGraphic <= masknum) return 0;
+  if (4*masknum + 8 > actualSize) return 0; // No room for the offset!
   offset = pGraphic[masknum+1];
-  if (offset == 0) return false;
-  if (offset >= actualSize) return false;
+  if (offset == 0) return 0;
+  if (offset >= actualSize) return 0;
   return (BACKGROUND_MASK *)((i8*)pGraphic + offset);
 }
 

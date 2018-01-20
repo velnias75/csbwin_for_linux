@@ -4770,7 +4770,7 @@ static void EX_AMPERSAND(EXECUTIONPACKET& exPkt, int cmdOffset)
       if (idx > 98) break;
       location = 1024*pDSAparameters[1+0] + 32*pDSAparameters[1+1]+pDSAparameters[1+2];
       pdsaDbank->Var(idx, location);
-      distance = abs(pDSAparameters[1+1]-pDSAparameters[1+5]) + abs(pDSAparameters[1+2]-pDSAparameters[1+6]);
+      distance = __builtin_labs(pDSAparameters[1+1]-pDSAparameters[1+5]) + __builtin_labs(pDSAparameters[1+2]-pDSAparameters[1+6]);
       pdsaDbank->Var(idx+1, distance-1);
       if (pdsaDbank->tracing)
       {
