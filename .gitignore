@@ -2,7 +2,6 @@ Makefile
 autom4te.cache/
 src/*.o
 src/.deps/
-m4/
 Makefile.in
 aclocal.m4
 compile
