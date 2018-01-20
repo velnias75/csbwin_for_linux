@@ -16,7 +16,7 @@ PLATFORM_SPECIFIC = LinScreen.cpp LinCSBUI.cpp CSBlinux.cpp
 #PLATFORM_SPECIFIC = WinScreen.cpp CSBUI.cpp
 
 
-INCLUDES = \
+AM_CPPFLAGS = \
 	-I. \
 	@GTK_CONFIG_CFLAGS@ \
 	`$(SDL_CONFIG) --cflags` \

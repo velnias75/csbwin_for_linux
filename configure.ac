@@ -4,7 +4,8 @@ dnl Process this file with autoconf
 AC_INIT([CSBwin_for_Linux],12.100)
 AC_PREREQ(2.57)
 AC_CONFIG_SRCDIR(src/Code222ea.cpp)
-AM_INIT_AUTOMAKE(1.4)
+AC_CONFIG_MACRO_DIRS([m4])
+AM_INIT_AUTOMAKE([1.4 foreign])
 
 dnl AC_PREREQ(2.57)
 dnl AC_INIT(src/Code222ea.cpp)
@@ -63,7 +64,7 @@ AC_HEADER_STDC
 
 
 AC_PATH_PROG(GLIB_CONFIG, glib-config, AC_ERROR("I need glib"))
-PKG_CHECK_MODULES(GLIB, glib >= 1.2.0 )
+PKG_CHECK_MODULES(GLIB, glib-2.0 >= 1.2.0 )
 
 
 ## Compile with old GTK for menus.
