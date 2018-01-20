@@ -1,0 +1,7 @@
+Dies ist CSBwin für Windows und Linux.
+This is CSBwin for Linux and Windows.
+
+Version: 12.100
+
+Play "Dungeon Master", "Chaos Strikes Back", and many custom games.
+Spiele „Dungeon Master“, „Chaos Strikes Back“ und viele „nachempfundene“ Spiele.

@@ -1,0 +1,245 @@
+Date: Tue, 17 Feb 2004 12:06:13 +0100 
+From: Tomas Zahradnicky <tomas@24uSoftware.com> 
+Subject: 9.6v2 changes 
+X-Sender: tomas@216.71.190.38 
+To: Paul R Stevens <prsteven@facstaff.wisc.edu> 
+X-Spam-Report: Probability=12%, Hits=X_NJABL_DUL 1, __HAS_MSGID 0, 
+ __SANE_MSGID 0, __MIME_VERSION 0, __EVITE_CTYPE 0, __CT_TEXT_PLAIN 0, __CT 0, 
+ SIGNATURE_SHORT_DENSE 0, __MIME_TEXT_ONLY 0, RCVD_IN_NJABL_ORG 0, 
+ __TO_MALFORMED_2 0 
+X-Spam-Score: * 
+Original-recipient: rfc822;prsteven@facstaff.wisc.edu 
+
+
+Hi Paul,
+
+
+I don't know but I still tend to call you Steve. Sorry if I made this mistake.
+
+
+So, here's the changes list. These changes are required in order to compile it successfully on my computer.
+
+
+-Tomas
+
+
+
+global: these conditionals should read (turns off annoying warning)
+
+
+
+  #ifndef _LINUX ---> #if !defined(_LINUX) && !defined(TARGET_OS_MAC)
+  #pragma warning (disable:4710)
+  #endif
+
+
+or better
+
+
+  #ifdef _MSVC_INTEL
+  #pragma warning (disable:4710)
+  #endif
+
+
+Data.cpp
+
+
+  line:81, double ;
+
+
+
+  line:1354
+
+
+  m_table = (i32 *)UI_malloc(3 * m_entsize * sizeof (int));
+    ->
+  m_table = (int *)UI_malloc(3 * m_entsize * sizeof (int));
+
+
+
+
+  line:1374
+
+
+  m_table = (i32 *)UI_realloc(m_table, m_allocated * m_entsize * sizeof (int));
+    ->
+  m_table = (int *)UI_realloc(m_table, m_allocated * m_entsize * sizeof (int));
+
+
+
+
+  line:1416
+
+
+  void TABLE::Get(i32 index, i32 *a, i32 *b, i32 *c)
+    ->
+  void TABLE::Get(i32 index, i32 *a, i32 *b, int *c)
+
+
+
+
+  line:1577-9
+
+
+        tableTXYFR.Get(f1, &f5, (int *)&m_ran);
+        tableTXYF.Get(f5, (int *)&deltatime, &f5);
+        tableXYF.Get(f5, &m_x, &m_y, &m_num);
+    ->
+        tableTXYFR.Get(f1, &f5, (i32 *)&m_ran);
+        tableTXYF.Get(f5, (i32 *)&deltatime, &f5);
+        tableXYF.Get(f5, &m_x, &m_y, (int*)&m_num);
+
+
+
+
+  line:1583-4
+        tableTXYF.Get(f1, (int *)&deltatime, &f5);
+        tableXYF.Get(f5, &m_x, &m_y, &m_num);
+    ->
+        tableTXYF.Get(f1, (int *)&deltatime, &f5);
+        tableXYF.Get(f5, &m_x, &m_y, (int*)&m_num);
+
+
+
+  line:1592
+        tableXYF.Get(f2, &m_x, &m_y, &m_num);
+    ->
+        tableXYF.Get(f2, &m_x, &m_y, (int*)&m_num);
+-----------------------------
+SaveGame.cpp
+
+
+  line:135
+
+
+  pebf->dataTypeMapChecksum = BE32(pefb->dataTypeMapChecksum);
+    ->
+  pefb->dataTypeMapChecksum = BE32(pefb->dataTypeMapChecksum);
+
+
+
+------------------------------
+CSBUI.cpp
+
+
+  line:1005
+
+
+  the UI_ClearScreen function should be empty for mac
+
+
+------------------------------
+system.cpp
+
+
+  line:249
+
+
+  char *GETS(char *buf, i32 max, i16 file)
+    ->
+  char *GETS(char *buf, int max, i16 file)
+
+
+
+-- 
+Ing. Tomas Zahradnicky, Jr.
+Production Manager, 24U Software
+Associate Member, Filemaker Solutions Alliance
+mailto:tomas@24uSoftware.com
+http://www.24uSoftware.com
+
+
+
+=
+***********************************************************************
+***********************************************************************
+
+
+
+Date: Tue, 17 Feb 2004 01:53:03 +0100 (MET) 
+From: Erik Svanberg <svanberg@acc.umu.se> 
+Subject: Re: MacFiles.zip 
+To: Paul Stevens <prsteven@facstaff.wisc.edu> 
+X-Virus-Scanned: by amavisd-new at acc.umu.se 
+X-Spam-Report: Probability=8%, Hits=__IN_REP_TO 0, __TO_MALFORMED_2 0, 
+ __HAS_MSGID 0, __SANE_MSGID 0, __MIME_VERSION 0, __CT_TEXT_PLAIN 0, __CT 0, 
+ __REFERENCES 0, SIGNATURE_SHORT_DENSE 0, __MIME_TEXT_ONLY 0, REFERENCES 0.000, 
+ IN_REP_TO 0 
+X-Spam-Score: 
+Original-recipient: rfc822;prsteven@facstaff.wisc.edu 
+
+
+I forward this from Rebecka:
+
+
+The "official" Linux version cannot run Conflux, but our local version
+can. We didn't have to alter many things to makt it work, but there are a
+few issues:
+
+
+Character case in Filenames... this is especially an issue with the extra
+graphics in the subdirectory Portraits. We did something like this in
+Bitmaps.cpp...
+
+
++#ifdef _LINUX
++  sprintf(filename2,"Portrait%03d.bmp",index);M
++  sprintf(filename1,"portraits/Portrait%03d.bmp",index);M
++#else
+   sprintf(filename2,"Portrait%03d.BMP",index);M
+   sprintf(filename1,"portraits\\Portrait%03d.BMP",index);M
++#endif
+
+
+...but this will only work with conflux, unless there is a naming sheme
+for the graphics in new dungeons.
+Btw, I think Win32 open(filename) can handle "/" as delimiters just as
+well as "\\". Linux can not do this, perhaps we could use "/" for both
+windows and linux?
+
+
+
+
+Then there is the second issue: The same file (Bitmaps.cpp) use two
+windows specific structures BITMAPINFOHEADER and BITMAPFILEHEADER. We
+copied these structs into Types.h, but perhaps a better way would be to
+copy them into Bitmaps.cpp and rename them to something like
+CSB_BITMAPINFOHEADER and CSB_BITMAPFILEHEADER.
+
+
+I don't know how well this works for macintosh... ANSI C explicitly
+forbids you to read a structure directly from a binary file. They want you
+to go through the painful work of loading each struct member one by one.
+If the MAC compiler honours #pragma pack, then this should not be a
+problem.
+
+
+Bitmaps.cpp could start with
+#include<all includes>
+#pragma pack(1)
+//copy of BITMAPINFOHEADER goes here
+#pragma pack
+
+
+
+
+These changes are the only ones you need to make in the "shared" code to
+make the linux version happy.
+
+
+
+About the future... will you add support to use external sounds?
+
+
+I would be interested in making a "dinner table" for a dungeon we are
+creating. Is this possible with this version of CSB?
+
+
+The "dinner table" would work like a huge alcove, but visible from all
+sides. It would cover a whole cell, and things would be placeable on top
+of it just like a floor tile.
+
+
+-- 
+
+Mvh Erik Svanberg (and Rebecka) 

@@ -1,0 +1,24 @@
+Package names are from Debian
+you need LENNY or SID in your sources-list for Glib 1.2 and GTK+ 1.2
+Names are likely similar, but not identical on Redhat-type Linuxes, Suse, etc.
+
+Package names from Debian Squeeze and Lenny:
+libglib1.2-dev
+libgtk1.2-dev
+libesd0-dev
+libsdl1.2-dev
+
+The above pull in other required packages via dependencies,
+so this list is incomplete.
+
+Things to look for if something is missing:
+
+The GNU C++ compiler
+Enlightened Sound Daemon: Esound, ESD
+Simple Direct Media Layer: SDL
+The Gimp Toolkit: GTK, GTK+
+Gnome: Glib
+
+I had no luck in compiling Hermes in to achieve dynamic window resizing.
+You'll also notice that sound is far less than optimal.
+Help would be appreciated.

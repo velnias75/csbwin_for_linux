@@ -1,0 +1,393 @@
+========================================================
+Version 10.0
+--Help PocketPC work on 240x240 screen
+--Changes required for Conflux III.  All quite technical and not used by DM/CSB.
+--This is a kind of 'final' version.  I don't anticipate a lot more work.
+========================================================
+Version 9.9
+--Party Location as Spell Parameter
+--Move variables DrawAsSize4Monsters and invisibleMonsters to non-platform
+dependent location
+--Large Death Cloud for Size4 monsters
+--DSA - Ability to control Footprints floor graphics.
+--Walltext character name substitution
+--DSA - Delimit stack contents in DSA trace
+--DSA - New Failed-Spell texts
+--DSA - &ECF! trace
+--DSA - &ADD Actuators
+--DSA - &ADD Monsters
+--DSA - Retrieve Character Possessions
+--DSA - Correct L32768 bug
+--DSA - &ADD objects to cursor and character possessions
+--DSA - &DEL objects from cursor and character possessions
+--DSA - &SAY implemented
+--DSA - Return -1 for &TYPE(-1) (avoid error message)
+--DSA - Implement &ECF@
+--DSA - Implement &LOC2ABSCOORD
+--DSA - Implement &NOT
+--Spell Filter. New, default, Spell-failure messages.
+--DSA - Allow messages to level 16
+--DSA - Implement '&U<'
+--DSA - Implement '&MASTERY' to get Fighter, Ninja, Priest, Wizard level.
+--Update viewport when object added to or deleted from inventory
+--PocketPC - Fix palette for marching order display
+--DSA - &SET/GET CURSED/BROKEN/CHARGES
+--Fix Fluxcages shown two cells away instead of one.
+--Use signed compare for Monster Hitpoints versus damage so that
+hitpoints greater than 32767 are possible.
+--DSA - Traces for &Get/Set item attributes
+--Encrypted Hint file
+--Allow graphics not a multiple of 16 wide...they will look bad but 
+don't cause crash.
+--DSA - Load command had desination and value reversed.
+--DSA - &CELL@ and &CELL! implemented
+--Repair Die/Restart crash on Win2k
+--DSA - Repair Door-Switch flag in &CELL@
+--DSA - Trace values fetched by &CELL@ and &PARAM@
+--DSA - Honor disable time for nonsense spells.
+--DSA - Implement &GLOBAL@
+--DSA - Allow changing door state 'closed' to 'bashed' and 'bashed' to 'open'.
+--DSA - Implement &MONSTER@
+--DSA - Implement &THROW
+--DSA - Trace &THROW
+--DSA - Restrict object types in &THROW
+--DSA - Implement &MONSTER!
+--DSA - Implement &TELEPORTPARTY
+--Repair Spell 1300 reported as 1305 in Spell Filter
+--Implement Feeding Filter
+--FeedFilter - Fix Waterskin contents goes negative
+--FeedFilter - Fix consumables should have default FeedAction = true
+--FeedFilter - Fix Waterskins and Potions should not 'chew'
+--FeedFilter - Fix Shield changes cause debug text output.
+--FeedFilter - Fix Stamina going negative
+--FeedFilter - Fix normal food should have 'chew' action.
+--Fix &DEL Scroll in cursor causes crash.
+--Repair 'Save and Quit'
+--Trace parameter array in &Monster!
+--Allow graphic size greater than 32767 bytes.
+--Feed Filter - Fix Vi Potion decreases HP instead of increases.
+--DSA - Implement &PARTY@
+--DSA - Implement &CHAR@
+--DSA - Implement &CHAR!
+--Allocate unique actuator type for counter to avoid confusion
+between m=monster generators and counters
+--DSA - Implement &CREATECLOUD
+--DSA - Implement functions to get/set charges/broken/cursed
+--Repair armor resistance to prevent it accumulating without
+being reset and eventually overflowing.
+--Modification to prevent monster generator reactivation timer
+from reactivating once-only pressure pads and turning them
+into illegal generators.
+--DSA - Extend &ADD to allow addition of items to monsters.
+--DSA - Repair &THROW so it can throw poison cloud.
+--DSA - Implement &RANDOM.
+--Round sound samples when reducing volume in an attempt to 
+reduce the noise content.
+--Rewrite DirectSound interface from scratch to make it simpler,
+to release sound buffers after they are played, and to make it
+possible to turn DirectSound off and on repeatedly.
+--Fix lost sounds.
+--DSA - Implement &XOR
+--DSA - Fix the position override function when illegal pos specified.
+--DSA - Make &ADD use 'posMsk' parameter properly.
+--Allow 'directx' on command line to use DirectSound by default
+--Repair two problems with double shooters.
+--Monster Movement Filter
+--Viewing Filter
+--DSA - implement &DESCRIBE
+--DSA - Implement &MOVE
+--DSA - &SAY recognizes '/' as line-break
+--DSA - Fixed "J10" causes state to change if state 10S0 is <empty>.
+--DSA - Fixed "Text too long" error in &SAY
+--DSA - Fixed &CHAR! to dead character leaves multiple bones.
+--DSA - A 'Size-4' monster now drops implicit items only wwhen last monster of group dies.
+--DSA - Fixed "Eating heals even when parameter 19 is zero".
+--DSA - &GETPOISONED and &SETPOISONED
+--DSA - &COPY (Actuators)
+--Save DM Rules setting
+--Fix Portraits numbers MOD 256
+--NewGraphicEngine - Overlay Palette implemented
+--Designer-specified reincarnation penalty
+--Fix - Make invisible monters less visible
+--NewGraphicEngine - Fetch skin number of any cell
+--DSA - Ability to examine monster possessions
+--DSA - Fix crash caused by moving missile cell-to-cell
+--NewGraphicEngine - Redraw viewport when Overlay Palette changes
+--Dynamic expansion of objectlist.  Allows more cells to contain objects.
+--Default skins by level
+--Fix teleporters that teleport objects-only.  They were teleporting everything!
+--Fix CustomGraphic expansion to allow 0xff in first byte.
+--DSA - Modify &Char@ to include pending character damage
+--NewGraphicEngine - Provide method of leaving mortar line under text
+--Allow designer-specified weight for chests.
+--Display character damage caused by DSA
+--Fix timer queue expansion for a very special case.
+--NewGraphicEngine - allow destination x-coordinate to not be a multiple of 16
+--Fix monster move filter trigger for distance > 0x0f
+--DSA - Fix &CHAR@ parameters 10-15.  They were always '1'.
+--DSA - Disallow Monster manipulation in Filters.
+--DSA - Invent %INDIRECT to get certain actions out of Filters.
+--DSA - Allow Filter Indirect Action Messages to have a delay
+--DSA - Fix moving a large Monster puts it in a corner of a cell and makes it 
+        invisible.
+--Use '//' for linefeed in floor text.
+--DSA - Allow &SOUND to use internal sounds.
+--DSA - Fix different cloud types not differentiated by &TYPE.
+--DSA - Allow different Monster Movement Filter for each level.
+--DSA - Include Miscelaneous and Clothing objects in &SETCHARGES and &GETCHARGES
+--DSA - Fix &MOVEing a Cloud causes a delayed crash.
+--DSA - Fix potential crash when &CELL@ or &CELL! reference illegal cell.
+--Fix - Floor text produces blank line.
+--Fix - Clouds and Missiles should not activate PressurePads.
+--Tolerate Cloud graphics that are one too small in vertical size
+--DSA - Allow &CHAR! to set the 7 attributes strength, wisdom, etc
+--Save the 'DM Rules' flag and 'DM Rules designer option' in savegame
+--DSA - Implement &TIME@
+--DSA - Provision for DSA to specify attack on leader, random, or closest character
+--DSA - Implement &CHAR@ and &CHAR!
+--DSA - Fix Feeding Filter with both 'Empty Flask' and 'Empty Hand' causes error
+--DSA - Implement Delete Monster Filter 
+--Implement automatic TimerTrace and Record in _DEBUG releases
+--DSA - Fix &INSMON used d.Loaded level instead of locr.l (Put monster on wrong level!)
+--DSA - Implement AdjustSkills Filter
+--DSA - Implement &SetAdjustSkills Parameters
+--DSA - Implement DSAtrace select Menu.  Move traces to .\traces directory.
+--DSA - Implement Get/Set Charges for potions
+--DSA - Implement &DELMON and &INSMON (fingers crossed)
+--Fix crash when examining non-existent GameInfo
+--DSA - Add trace of parameters to all the Create Virtual functions
+--Implement the Viewport language word 'BitmapInfo'.
+--DSA - Implement Sound Filter.
+--DSA - Add 'Distance-to-sound' parameter in Sound Filter parameters
+--Implement Alternate Monster Graphics capability.
+--Fix - Difficult-to-see pits show as normal pits at distance 3.
+--DSA - Copy any DSA MessageDialog text to the DSA trace file.
+--DSA - Fix &MONSTER@ with state=(0607) should return 0 -1 0 0 0 0 0
+--Write DSA instrumentation to a separate file.
+--DSA - Implement &MISSILEINFO@ and &MISSILEINFO!
+--DSA - Implement &GENERATORDELAY@ and &GENERATORDELAY!
+--DSA - Fix &GENERATORDELAY@ copies Pressure Pad info if Generator is disabled
+--DSA - DSA import/export crash when opening file.
+========================================================
+Version 9.8
+--Allow DSA function &DEL to delete potions, weapons, clothing
+--DSA can Disable/Enable Saves
+--Viewport Overlay capability
+--Implement DSA &!=
+--Move Portraits to CSBgraphics.dat
+--DSA extension to 64 levels.  Ten-byte Actuators.
+--Repair Utility versus ten-bye Actuators.
+--Implement DSA &ADD (weapons, potions, clothes)
+--Allow DSA to reference last column and row of level.
+--Repair Utility function versus big actuators.
+--Load/Save DSA index for level 16.
+--Remember overlay status in savegame.
+--Implement signature for CSBGraphics file.
+--Implement DrawAsSize4 monsters.
+--Repair Poison Bolts (and probably some other missiles) to do more damage.
+--Repair problem of word64 (damage resistance) during attack not getting
+  reset.  Causes overflow and strange damage resistance calculations.
+========================================================
+Version 9.7
+--Remove all complicated graphics cacheing and allocate
+all graphic space from normal 'malloc' heap.  The original
+cache code had to contend with the extremely limited
+memory on the Atari.
+--Supress Random Decoration on wall containing Text.
+--Make dungeon.dat 'Hintable' when first loaded.
+--Character name substitution in Floor Text.
+--Added third-party code to use DirectX.  Added menu 
+item to enable DirectX usage.
+--Remove 'FORMAT" button on save game menu.
+--Speed up the 'SmartDiscard' by a factor of 50 to
+deal with large dungeons.  Especially 64-level dungons!
+--Queue sounds so they are not lost when two play at
+same time.
+--Allow 64-level dungeons.
+--Repair bug in Hint Oracle that caused write past
+end of allocated string buffer.
+--Disable AsciiDump, TimerTrace, AttackTrace, FunctionTrace,
+MonsterAITrace, ItemsRemaining, Non-CSBItemsRemainin
+when playing encrypted dungeon.
+--Ignore pits above non-existent places.
+--Command-Line option to control speed.
+--Fix strange cursor behavior.
+--Fix disappearance of objects in Alcoves at distance two.
+--Check signitures of dungeon.dat and graphics.dat
+during playback to be sure they are the same ones used
+to make the recording.
+--Do not warn of Bitmap file errors in playback mode.
+--Don't count Potential Character when deciding if 
+party is dead.  (Disable Ghost trick)
+--Remove 'Illegal Stairway Exit' warning.
+--If party exits stairway where it is surrounded by
+four walls then don't attempt to modify direction facing.
+--Supress the 'Too many Monsters' message in Playback mode.
+--Fix inability to continue playback game that ended
+in a 'Game-Frozen' state.
+--Fix error caused by monster emerging from generator
+queeu and falling immediately into a pit.  The monster
+belongs to no level.  I added a 'no-item16' flag to 
+DamageMonster().
+--Apply limits to Mana, HP, and Stamina when reviving character.
+--Implement a 'Game Version' capability to allow designer
+to communicate game version, story line, etc to the player.
+--Change response to the Utility's 'REVERT' button
+to make it clear the code will never be implemented.
+--Add 'No Record' command-line option.
+--Update Timer entry when FluxCage moves.
+--When text and Wall Decoration are on same wall we now 
+display them text-first except when directly adjacent to
+the party.  And in that case we supress the 'joint-removal'.
+--Menu to select sound volume
+--'Wiggle' objects on a pit only when the pit goes from a closed
+to an open state....not when it is open and then set open again.
+--Allow 'Setting' of wall text to make it visible.  'Toggle'
+worked and 'Clear' caused a toggle and 'Set' did nothing.
+They should work properly now.
+--Allow designer to specify DM rules as the default.
+--Allow up to 100 characters in wall text.
+--Don't crash after warning user about illegal actuator target.
+--Remove debug code from 9.6t.  Otherwise nothing works.
+--Allow up to 500 characters in Floor Text.
+--Fix Load problem.  The Atari code destroyed a key before
+removing from the character's hand which caused its weight
+to not be removed from the character's load.  Keys were not
+too much of a problem but Conflux had much heavier 'keys'.
+--Confine Wall-Tapping noise to the wall immediately in front
+of the party.
+--Do not create type zero Timer entries.  Warn the player
+once and then be quiet about it.  Don't issue warning in
+Playback mode.
+--Don't announce 'Illegal Wall Graphic' if in Playback mode.
+--Attempt to correct wall-tapping.  Non-blocking Trick Wall
+no longer causes tapping sound.
+--Survive Flagged-Empty-Cells.  These are cells marked as
+containing one or more objects but which ar in fact empty.
+--Pause during playback
+--If Monster Hitpoints == 65535 then the monster is invulnerable.
+This has not been tested at all!
+--Notification when playback is complete and player regains control.
+--Mor fixes to allow databases to exceed 32767 bytes.
+--Allow databases to exceed 32767 bytes.
+--Provide wall-tapping.
+--Automatically expand the number of allowable Timer entries.
+--Fix one cause of crash when 'Restarting' after party dies.
+--Champion Portrait Actuators on Trick Walls can now receive
+messages.
+--Repair problem that prevented Set message from setting 
+'Show Graphic' in Champion Portrait Actuators.
+--Repair problem that made messages to Champion Portrait
+Actuator position-insensitive.
+--Survive Wall Text that is too long.  Provide a single
+warning and then be quiet and tolerant.  Throw away excess.
+--Fix confusion between graphic number and target positon
+in Champion Portrait Actuator.
+--Fix the 'Show Graphic' option for Champion Portrait.  It
+was impossible to hide the graphic.
+--Expanded Champion Portrait capabilities
+--Provide useful application for multiple Champion Portrait
+actuators on same wall.
+--Accomodate a 'logs' folder.
+--Accomodate a 'portraits' folder.
+--Handle mal-formed External Portraits more gracefully.
+--Correctly handle Champion Portrait with zero Hit Points.
+--Allow Multiple Champion Portraits on corner walls.
+--Replace illegal tile with floor rather than wall.
+--Allow for renamed items.
+--Fix colors in external portrait.
+--Provide a 'record' command-line option.
+--Provide for 'Auto Record' specified by designer.
+--Show proper external portrait after resurrection.
+--Allow 256 different portraits.
+--Correctly encipher using 'Simple Encrypt'.
+--Change Illegal cell types to walls.
+--Ability to load and save large-text files
+--Prevent crash when adding character with more object than
+will fit in backpack.
+--Fix "Mumbles a meaninglss spell"
+--Repair distored graphic of "Evil Outside" when two squares
+back and one square to the side.
+--Repair crash if portrait has no text.
+--Provide error message and refuse to proceed if a savegame
+has been enlarged before restarting after party death.
+--Limit Scroll text to what will fit on the scroll's graphic.
+--Provide simple encryption.
+--Allow Floor decorations in doorway.
+--Repair crash that results from a double shooter having
+only one object to shoot.
+--Allow Door record to be non-first record in Cell's list of objects.
+==============================================================
+Version 9.6
+
+Repaired distorted graphic of 'EVIL-OUTSIDE' at a distance of 3.
+This was an error in the graphics files.
+
+Clear screen when changing screen sizes.
+
+Double linefeed in scrolls now results in a blank line instead
+of the letter 'J'.
+
+Allow Anti-Fire and -Magic to operate as it appears was intended
+by original designers.  (Byte/word problem).
+
+Survive illegal Champion Portrait text.  Substitute "BOGUS"/"ILLEGAL HERO"
+and minimal stats.
+
+Fullscreen capability.
+
+Ignore doors and teleporters in stone walls.
+
+Prevent 'grave-robbing' by disallowing party traveling through
+solid stone walls.
+
+Detect infinite actuator loop and die gracefully.
+
+Implement DM rules option.  Affects 'reincarnation' stats.
+
+Fix crash in 'Misc|Items Remaining' when a Screamer is carrying
+a Rock Pile.
+
+Remove check for size-four monster positions.
+
+Don't delete objects marked as 'Cloned'.
+
+19June03
+
+When placing object in cell search entire list for actuator.
+
+Add sound when monster drops weapon.  This was a bug on my part.
+
+21June03
+
+Check position of size 4 monsters.  They must have positons
+of 3,3,3,3 to be visible.  If incorrect I change it silently.
+
+Limit Wall Text to 18 characters per line to avoid strange
+things from happening.
+
+Added 'List All Items Remaining'.  Like the old 'Items Remaining'
+except that it does not assume the CSB dungeon.
+
+Fix 'Divide-by-zero' crash when Luck is zero.
+
+22Jun03
+
+Fix another Divide-by-zero problem when Maximum Attribute = 0;
+
+Fix crash when party is struck by fireball.  Atari code released
+the database entry before extracting tht timer index.  This was
+broken when I put in the code to not release cloned objects.
+
+Remove warning about size two monsters being improperly positioned.
+
+23 June 2003 AM
+
+Fix walltext causing terrible graphics problems.  This has been
+broken for 2-1/2 years!!!  We lucked out.
+
+23 June 2003 PM
+
+Fix removing weight when character eats food.  The original code
+released the memory from the database and then referenced it to 
+get the weight.  It also referenced it for many other purposes!

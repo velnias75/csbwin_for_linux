@@ -1,0 +1,392 @@
+; *******   IMPORTANT  NOTE   *********
+;
+;  !!!  Every number in this file is hexadecimal !!!!!
+;
+;************************ Documentation *************************
+;**************** COMMAND LINE OPTIONS and PARAMETERS ***********
+;
+; directory="directory name"
+;    This is the directory where we start looking for files.
+;    We also search the parent directory if necessary.
+;
+; repeat
+;    When do a playback this causes the playback to be repeated.
+;
+; height=nnnn
+;    Sets the window height in pixels.
+;
+; quick=nnnn
+;    In playback mode this causes quick playback for the
+;    specified number of 'clock ticks'.
+;
+; vblmultiplier=nnnn
+;    In playback mode this causes faster playback.  Specified
+;    value between 1 and 99.  Values 1 through 98 cause the 
+;    graphics routines to be skipped sot that the screen is 
+;    updated less often.  The value 99 is special in that all
+;    normal screen updates are performed.
+;
+; dungeon="dungeon name"
+;
+; width=nnnn
+;    Sets the window width in pixels.
+;
+; x=nnnn
+;    Sets the horizontal postion of the left edge of window.
+;
+; y=nnnn
+;    Sets the vertical position of top edge of window.
+;
+; size=FULL,EXTRALARGE,VERYLARGE,LARGE, or SMALL
+;    Sets size of graphics (not the window!)
+;
+; speed=GLACIAL,MOLASSES,VERYSLOW,SLOW,NORMAL<FAST or QUICK
+;    Sets the speed of the internal clock.
+;
+; play="filename"
+;    Plays a previously recorded game.
+;
+; record
+;    Automatically sets the program to record the player's moves.
+;
+; norecord
+;    Overrides any automatic recording initiated by the game's designer.
+;
+;  *********** END OF COMMAND LINE OPTIONS and PARAMETERS ******************
+;    
+;
+; *****************************Documentation ***************************
+; 
+;
+; ************ CONFIGURATION FILE PARAMETERS ***************************
+;HideTaskBar
+;    Used in PocketPC configurations when the screen is too small to contain
+;    both the game and the system task bar.
+;
+;HideMenu
+;    Used in PocketPC configurations when the screen is too small to contain
+;    both the game and the menu bar.  The Menu Bar can be re-enabled during
+;    game play by selecting the 'Save' option from the inventory screen and
+;    selecting either 'SVE AND QUIT' or 'CANCEL'.
+;
+;
+; directory "directoryname"
+;    Tells where the game data is located.  The parent directory
+;    is also searched if necessary.
+;
+; place segment size srcx srcy width height dstX dsty
+;    In full-screen mode this tells where the pieces of the
+;    Atari screen should be placed on the video display.
+;      segment = A, B, C, D, or E (viewport, text, controls, portraits, info)
+;      size = 1, 2, 3, 4
+;      srcx and srcy are upper left corner of portion of Atari screen
+;      width and height are are size of portion of Atari screen.
+;      dstx and dsty are where to put the result on the video display.
+;
+; scan, key, and mscan are described below.
+; **********************************************************************
+; ********** Pocket PC Display parameters ******************************
+; 
+; Name, srcx, srcy, dstx, dsty, width, and height are self-explanatory.
+; copymode=1 means compress character stat bars to fit horizontally in small screen.
+;
+; All of the numbers in CEDisplay can be decimal or hex (0x1fd for example).
+;Name srcx srcy dstx dsty width height copymode palette overlay z_order
+;
+; Landscape - Original game layout 
+;windowTop = 0 
+;windowLeft = 0 
+;windowRight = 320 
+;windowBottom = 240 
+;CEDisplay HFULL_VCENTER     0   0   0   0 320 200 0 0 0  0 
+;CEDisplay HCENTER_VFULL     0   0   0   0 320 200 0 0 0  1 
+;CEDisplay PRISON_DOOR       0   0   0   0 320 200 0 0 0  2 
+;CEDisplay PORTRAIT_A        0   0   0   0  67  29 1 0 0  6 
+;CEDisplay PORTRAIT_B       69   0  69   0  67  29 1 0 0  5 
+;CEDisplay PORTRAIT_C      138   0 138   0  67  29 1 0 0  4 
+;CEDisplay PORTRAIT_D      207   0 207   0  67  29 1 0 0  3 
+;CEDisplay VIEWPORT          0  33   0  33 224 136 0 1 1  7 
+;CEDisplay SPELL_CONTROLS  233  33 233  33  87  42 0 1 0  8 
+;CEDisplay ATTACK_CONTROLS 233  77 233  77  87  46 0 0 0  9 
+;CEDisplay TURN_LEFT       233 124 233 124  29  22 0 0 0 10 
+;CEDisplay MOVE_FORWARD    262 124 262 124  28  22 0 0 0 11 
+;CEDisplay TURN_RIGHT      290 124 290 124  30  22 0 0 0 12 
+;CEDisplay SLIDE_LEFT      233 146 233 146  29  23 0 0 0 14 
+;CEDisplay MOVE_BACKWARD   262 146 262 146  28  23 0 0 0 13 
+;CEDisplay SLIDE_RIGHT     290 146 290 146  30  23 0 0 0 15 
+;CEDisplay SCROLLING_TEXT    0 169   0 169 320  31 0 0 0 16 
+;CEDisplay MARCHING_ORDER  281   0 281   0  39  29 0 0 0 17 
+
+; Landscape - Layout for left handed player 
+;windowTop = 0 
+;windowLeft = 0 
+;windowRight = 320 
+;windowBottom = 240 
+;CEDisplay HFULL_VCENTER     0   0   0   0 320 200 0 0 0  0 
+;CEDisplay HCENTER_VFULL     0   0   0   0 320 200 0 0 0  1 
+;CEDisplay PRISON_DOOR       0   0   0   0 320 200 0 0 0  2 
+;CEDisplay PORTRAIT_A        0   0   0   0  67  29 0 0 0  6 
+;CEDisplay PORTRAIT_B       69   0  69   0  67  29 0 0 0  5 
+;CEDisplay PORTRAIT_C      138   0 138   0  67  29 0 0 0  4 
+;CEDisplay PORTRAIT_D      207   0 207   0  67  29 0 0 0  3 
+;CEDisplay VIEWPORT          0  33  97  33 224 136 0 1 1  7 
+;CEDisplay SPELL_CONTROLS  233  33   0  33  87  42 0 1 0  8 
+;CEDisplay ATTACK_CONTROLS 233  77   0  77  87  46 0 0 0  9 
+;CEDisplay TURN_LEFT       233 124   0 124  29  22 0 0 0 10 
+;CEDisplay MOVE_FORWARD    262 124  29 124  28  22 0 0 0 11 
+;CEDisplay TURN_RIGHT      290 124  57 124  30  22 0 0 0 12 
+;CEDisplay SLIDE_LEFT      233 146   0 146  29  23 0 0 0 14 
+;CEDisplay MOVE_BACKWARD   262 146  29 146  28  23 0 0 0 13 
+;CEDisplay SLIDE_RIGHT     290 146  57 146  30  23 0 0 0 15 
+;CEDisplay SCROLLING_TEXT    0 169   0 169 320  31 0 0 0 16 
+;CEDisplay MARCHING_ORDER  281   0 281   0  39  29 0 0 0 17 
+; 
+; Portrait with top controls
+;windowTop = 0 
+;windowLeft = 0 
+;windowRight = 240 
+;windowBottom = 320 
+;HideTaskBar
+;CEDisplay HFULL_VCENTER     0   0   0   0 240 200 0 0 0  0 
+;CEDisplay HCENTER_VFULL    40   0   0   0 240 200 0 0 0  1 
+;CEDisplay PRISON_DOOR      80   0   0   0 240 200 0 0 0  2 
+;CEDisplay PORTRAIT_A        0   0   8   0  67  29 0 0 0  6 
+;CEDisplay PORTRAIT_B       69   0 165   0  67  29 0 0 0  5 
+;CEDisplay PORTRAIT_C      138   0   8  30  67  29 0 0 0  4 
+;CEDisplay PORTRAIT_D      207   0 165  30  67  29 0 0 0  3 
+;CEDisplay VIEWPORT          0  33   8 106 224 136 0 1 1  7 
+;CEDisplay SPELL_CONTROLS  233  33 145  63  87  42 0 1 0  8 
+;CEDisplay ATTACK_CONTROLS 233  77   8  60  87  46 0 0 0  9 
+;CEDisplay TURN_LEFT       233 124  76   7  29  22 0 0 0 10 
+;CEDisplay MOVE_FORWARD    262 124 105   7  28  22 0 0 0 11 
+;CEDisplay TURN_RIGHT      290 124 133   7  30  22 0 0 0 12 
+;CEDisplay SLIDE_LEFT      233 146  76  29  29  23 0 0 0 14 
+;CEDisplay MOVE_BACKWARD   262 146 105  29  28  23 0 0 0 13 
+;CEDisplay SLIDE_RIGHT     290 146 133  29  30  23 0 0 0 15 
+;CEDisplay SCROLLING_TEXT    0 169   8 243 153  30 0 0 0 16 
+;CEDisplay MARCHING_ORDER  281   0 100  69  39  29 0 0 0 17 
+
+; Portrait - Default HP iPAQ PocketPC layout
+windowTop = 27 
+windowLeft = 0 
+windowRight = 240 
+windowBottom = 320 
+;HideTaskBar
+CEDisplay HFULL_VCENTER     0   0   0   0 240 200 0 0 0  0 
+CEDisplay HCENTER_VFULL    40   0   0   0 240 200 0 0 0  1 
+CEDisplay PRISON_DOOR      80   0   0   0 240 200 0 0 0  2 
+CEDisplay PORTRAIT_A        0   0   0   0  64  29 0 0 0  6 
+CEDisplay PORTRAIT_B       69   0  60   0  64  29 0 0 0  5 
+CEDisplay PORTRAIT_C      138   0 120   0  64  29 0 0 0  4 
+CEDisplay PORTRAIT_D      207   0 180   0  64  29 0 0 0  3 
+CEDisplay VIEWPORT          0  33   8  29 224 136 0 1 1  7 
+CEDisplay SPELL_CONTROLS  233  32   0 169  87  43 0 1 0  8 
+CEDisplay ATTACK_CONTROLS 233  77 102 167  87  45 0 0 0  9 
+CEDisplay TURN_LEFT       233 124 153 212  29  22 0 0 0 10 
+CEDisplay MOVE_FORWARD    262 124 182 212  28  22 0 0 0 11 
+CEDisplay TURN_RIGHT      290 124 210 212  30  22 0 0 0 12 
+CEDisplay SLIDE_LEFT      233 146 153 234  29  23 0 0 0 14 
+CEDisplay MOVE_BACKWARD   262 146 182 234  28  23 0 0 0 13 
+CEDisplay SLIDE_RIGHT     290 146 210 234  30  23 0 0 0 15 
+CEDisplay SCROLLING_TEXT    0 169   0 212 153  30 0 0 0 16 
+CEDisplay MARCHING_ORDER  275   0 195 169  45  33 0 0 0 17 
+
+; Portrait - compressed for 240x240 pixels 
+;windowTop = 0 
+;windowLeft = 0 
+;windowRight = 240 
+;windowBottom = 240 
+;CEDisplay HFULL_VCENTER     0   0   0   0 240 200 0 0 0  0 
+;CEDisplay HCENTER_VFULL    40   0   0   0 240 200 0 0 0  1 
+;CEDisplay PRISON_DOOR      80   0   0   0 240 200 0 0 0  2 
+;CEDisplay PORTRAIT_A        0   0   0   0  64  29 1 0 0  6 
+;CEDisplay PORTRAIT_B       69   0  60   0  64  29 1 0 0  5 
+;CEDisplay PORTRAIT_C      138   0 120   0  64  29 1 0 0  4 
+;CEDisplay PORTRAIT_D      207   0 180   0  64  29 1 0 0  3 
+;CEDisplay VIEWPORT          0  33   8 104 224 136 0 1 1  7 
+;CEDisplay SPELL_CONTROLS  233  33 154  31  87  42 0 1 0  8 
+;CEDisplay ATTACK_CONTROLS 233  77  67  29  87  46 0 0 0  9 
+;CEDisplay TURN_LEFT       233 124   0  29  23  22 0 0 0 11 
+;CEDisplay MOVE_FORWARD    265 124  22  29  22  22 0 0 0 10 
+;CEDisplay TURN_RIGHT      297 124  44  29  23  22 0 0 0 12 
+;CEDisplay SLIDE_LEFT      233 146   0  51  23  23 0 0 0 14 
+;CEDisplay MOVE_BACKWARD   265 146  22  51  22  23 0 0 0 13 
+;CEDisplay SLIDE_RIGHT     297 146  44  51  23  23 0 0 0 15 
+;CEDisplay SCROLLING_TEXT    0 169   0  74 153  30 0 0 0 16 
+;CEDisplay MARCHING_ORDER  281   0 202  74  39  29 0 0 0 17 
+;
+;
+; A 240x240 built for a particular player/machine
+;windowTop = 0 
+;windowLeft = 0 
+;windowRight = 240 
+;windowBottom = 240 
+;CEDisplay HFULL_VCENTER     0   0   0   0 240 200 0 0 0 0 
+;CEDisplay HCENTER_VFULL    40   0   0   0 240 200 0 0 0 1 
+;CEDisplay PRISON_DOOR      80   0   0   0 240 200 0 0 0 2 
+;CEDisplay PORTRAIT_A        0   0   0 137  64  28 1 0 0 6 
+;CEDisplay PORTRAIT_B       69   0  60 137  64  28 1 0 0 5 
+;CEDisplay PORTRAIT_C      138   0 120 137  64  28 1 0 0 4 
+;CEDisplay PORTRAIT_D      207   0 180 137  64  28 1 0 0 3 
+;CEDisplay VIEWPORT          0  33   8   0 224 136 0 1 1 7 
+;CEDisplay SPELL_CONTROLS  233  33 153 167  87  42 0 1 0 8 
+;CEDisplay ATTACK_CONTROLS 233  77  65 165  87  45 0 0 0 9 
+;CEDisplay TURN_LEFT       233 124   0 166  22  21 0 0 0 11 
+;CEDisplay MOVE_FORWARD    267 124  22 166  19  21 0 0 0 10 
+;CEDisplay TURN_RIGHT      298 124  41 166  22  21 0 0 0 12 
+;CEDisplay SLIDE_LEFT      233 147   0 187  22  23 0 0 0 14 
+;CEDisplay MOVE_BACKWARD   267 147  22 187  19  23 0 0 0 13 
+;CEDisplay SLIDE_RIGHT     298 147  41 187  22  23 0 0 0 15 
+;CEDisplay SCROLLING_TEXT    0 169   0 210 153  30 0 0 0 16 
+;CEDisplay MARCHING_ORDER  281   0 202 210  39  29 0 0 0 17 
+;************** END of CONFIGURATION FILE PARAMETERS ******************
+; 
+;
+;directory "c:\projects\csb\csbwin\debug\"
+;
+;  key translations
+;
+; scan  mode  <PC scan code>    <ATARI key code>
+; key   mode  <PC ASCII code>   <ATARI key code>
+; mscan mode  <PC VirtualKey>   <mouseX> <mouseY> <R/L>
+;
+; 
+; Scan codes are processed in OnKeyDown.
+;  Generally this is used to process non-ascii keys.
+; Key codes are processed by OnChar.
+;  ASCII codes are generally specified here.
+; mscan codes are used to translate keypresses to
+;  equivalent mouse clicks.  The x- and y-coordinates
+;  are relative to the entire 320 by 200 screen.  The
+;  R or L is used to designate which mouse button is
+;  pressed.
+;
+;
+; mode is the keyboard mode in effect.
+; mode 1 is used while adventuring
+; mode 2 is used during ReIncarnation.
+;
+;
+key  1 00001b 00001b  ;  escape = Freeze Game
+;
+key  1 00006b 480000  ; 'k' = move forward
+key  1 00004b 480000  ; 'K' = move forward
+scan 1 000048 480000  ; Keypad '8' = move forward
+key  1 000108 480000  ; SDL Keypad '8' = move forward
+;
+key  1 00006c 470000  ; 'l' = turn right
+key  1 00004c 470000  ; 'L' = turn right
+scan 1 000049 470000  ; Keypad '9' = turn right
+key  1 000109 470000  ; SDL Keypad '9'
+;
+key  1 00006a 520000  ; 'j' = turn left
+key  1 00004a 520000  ; 'J' = turn left
+scan 1 000047 520000  ; Keypad '7' = turn left
+key  1 000107 520000  ; SDL Keypad '7'
+;
+key  1 00002e 4d0000  ; '.' = move right
+scan 1 00004d 4d0000  ; Keypad '6' = move right
+key  1 000106 4d0000  ; SDL Keypad '6'
+;
+key  1 00006d 4b0000  ; 'm' = move left
+key  1 00004d 4b0000  ; 'M' = move left
+scan 1 00004b 4b0000  ; Keypad '4' = move left
+key  1 000104 4b0000  ; SDL Keypad '4'
+;
+key  1 00002c 500000  ; ',' = move backward
+scan 1 00004c 500000  ; Keypad '5' = move backward
+key  1 000105 500000  ; SDL Keypad '5'
+;
+mscan 1 0051  f0 5c L  ; 'Q' = character 1 weapon / first attack
+mscan 1 0057 104 5c L  ; 'W' = character 2 weapon / first attack
+mscan 1 0045 11c 5c L  ; 'E' = character 3 weapon / first attack
+mscan 1 0052 138 5c L  ; 'R' = character 4 weapon / first attack
+mscan 1 0041  f0 68 L  ; 'A' = character 1 weapon / second attack
+mscan 1 0053 104 68 L  ; 'S' = character 2 weapon / second attack
+mscan 1 0044 11c 68 L  ; 'D' = character 3 weapon / second attack
+mscan 1 0046 138 68 L  ; 'F' = character 4 weapon / second attack
+mscan 1 005a  f0 74 L  ; 'Z' = character 1 weapon / third attack
+mscan 1 0058 104 74 L  ; 'X' = character 2 weapon / third attack
+mscan 1 0043 11c 74 L  ; 'C' = character 3 weapon / third attack
+mscan 1 0056 138 74 L  ; 'V' = character 4 weapon / third attack
+mscan 1 0031  f0 37 L  ; '1' = first rune
+mscan 1 0032  fe 37 L  ; '2' = second rune
+mscan 1 0033 10a 37 L  ; '3' = third rune
+mscan 1 0034 11d 37 L  ; '4' = fourth rune
+mscan 1 0035 128 37 L  ; '5' = fifth rune
+mscan 1 0036 136 37 L  ; '6' = sixth rune
+mscan 1 00c0 136 43 L  ; '~' = backspace rune
+mscan 1 0020 10d 41 L  ; space = cast spell
+;mscan 1 0020 064 64 R  ; space = leader's inventory
+mscan 1 0070 200 2e L  ; F1  = first magic caster
+mscan 1 0071 201 2e L  ; F2  = second magic caster
+mscan 1 0072 202 2e L  ; F3  = third magic caster
+mscan 1 0073 203 2e L  ; F4  = forth magic caster
+mscan 1 0010 114 2f L  ; Shift = No operation
+mscan 1 0009 131 50 L  ; TAB = Pass (Cancel Attack)
+mscan 1 0055  32 10 R  ; u = first char inventory
+mscan 1 0049  7b 10 R  ; i = second char inventory
+mscan 1 004f  c2 10 R  ; o = third char inventory
+mscan 1 0050 10d 10 R  ; p = fourth char inventory
+;
+key 2 000041 000041  ; 'A' -> 'A'
+key 2 000061 000061  ; 'a' -> 'a'
+key 2 000042 000042  ; 'B' -> 'B'
+key 2 000062 000062  ; 'b' -> 'b'
+key 2 000043 000043  ; 'C' -> 'C'
+key 2 000063 000063  ; 'c' -> 'c'
+key 2 000044 000044  ; 'D' -> 'D'
+key 2 000064 000064  ; 'd' -> 'd'
+key 2 000045 000045  ; 'E' -> 'E'
+key 2 000065 000065  ; 'e' -> 'e'
+key 2 000046 000046  ; 'F' -> 'F'
+key 2 000066 000066  ; 'f' -> 'f'
+key 2 000047 000047  ; 'G' -> 'G'
+key 2 000067 000067  ; 'g' -> 'g'
+key 2 000048 000048  ; 'H' -> 'H'
+key 2 000068 000068  ; 'h' -> 'h'
+key 2 000049 000049  ; 'I' -> 'I'
+key 2 000069 000069  ; 'i' -> 'i'
+key 2 00004a 00004a  ; 'J' -> 'J'
+key 2 00006a 00006a  ; 'j' -> 'j'
+key 2 00004b 00004b  ; 'K' -> 'K'
+key 2 00006b 00006b  ; 'k' -> 'k'
+key 2 00004c 00004c  ; 'L' -> 'L'
+key 2 00006c 00006c  ; 'l' -> 'l'
+key 2 00004d 00004d  ; 'M' -> 'M'
+key 2 00006d 00006d  ; 'm' -> 'm'
+key 2 00004e 00004e  ; 'N' -> 'N'
+key 2 00006e 00006e  ; 'n' -> 'n'
+key 2 00004f 00004f  ; 'O' -> 'O'
+key 2 00006f 00006f  ; 'o' -> 'o'
+key 2 000050 000050  ; 'P' -> 'P'
+key 2 000070 000070  ; 'p' -> 'p'
+key 2 000051 000051  ; 'Q' -> 'Q'
+key 2 000071 000071  ; 'q' -> 'q'
+key 2 000052 000052  ; 'R' -> 'R'
+key 2 000072 000072  ; 'r' -> 'r'
+key 2 000053 000053  ; 'S' -> 'S'
+key 2 000073 000073  ; 's' -> 's'
+key 2 000054 000054  ; 'T' -> 'T'
+key 2 000074 000074  ; 't' -> 't'
+key 2 000055 000055  ; 'U' -> 'U'
+key 2 000075 000075  ; 'u' -> 'u'
+key 2 000056 000056  ; 'V' -> 'V'
+key 2 000076 000076  ; 'v' -> 'v'
+key 2 000057 000057  ; 'W' -> 'W'
+key 2 000077 000077  ; 'w' -> 'w'
+key 2 000058 000058  ; 'X' -> 'X'
+key 2 000078 000078  ; 'x' -> 'x'
+key 2 000059 000059  ; 'Y' -> 'Y'
+key 2 000079 000079  ; 'y' -> 'y'
+key 2 00005a 00005a  ; 'Z' -> 'Z'
+key 2 00007a 00007a  ; 'z' -> 'z'
+key 2 000008 000008  ; backspace
+key 2 00002e 00002e  ; period
+key 2 00002c 00002c  ; comma
+key 2 00003b 00003b  ; semi-colon
+key 2 00003a 00003a  ; colon
+key 2 00000d 00000d  ; carriage return
+key 2 000020 000020  ; space
+;
+;

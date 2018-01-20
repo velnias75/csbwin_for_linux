@@ -1,0 +1,91 @@
+1.1.2012 
+
+Diese Anleitung gilt für die Version 12.100
+(und sinngenmöglicherweise sinngemäß für neuere).
+
+Dies ist eine auch unter Linux laufende Version von CSBwin.
+
+Das hier sind einfache Skripte,
+es wird kein Versuch unternommen,
+Menüs für Gnome, KDE oder sonstwas zu machen,
+das wäre nur sinnvoll bei kompletten Spielepaketen
+für Deine Linux-Distribution.
+
+1) Kompilieren
+
+1.1) Voraussetzungen
+
+Es müssen eine Reihe von Vorausssetzungen erfüllt sein:
+
+1.1.1) C++-Compiler installiert
+1.1.2) Header-, Entwicklungs-Dateien für verschiedene benutzte Bibliotheken vorhanden
+
+1.2) Vorgehen:
+
+1.2.1) Das Archiv mit den Quellen entpacken:
+
+(Gegebenenfalls anderen Ort als „/usr/local/src/“ wählen.)
+
+mv CSBwin_12.100_Source.zip /usr/local/src
+cd /usr/local/src
+unzip -XK CSBwin_12.100_Source.zip
+
+1.2.2) Bauen
+
+cd CSBwin
+./autogen.sh
+
+Auf Fehlermeldungen achten.
+Ist „autogen.sh“ ausführbar?
+Bei Fehlern hoffen, daß sie einen Hinweis geben und zurück zu Punkt 1.1).
+
+Wenn alles endet, wird ein Programm „CSBwin“ in „CSBwin/src“ erzeugt.
+
+2) Installieren
+
+2.1) Voraussetzungen
+
+2.1.1) ROOT werden
+
+Weil es eine global für alle Benutzer verfügbare Installation
+unter „/usr/local“ macht, müssen die Rechte vorhanden sein,
+um dort Verzeichnisse anzulegen und Berechtigungen zu vergeben.
+
+2.1.2) Benutzer und Gruppe „games“
+
+Das Installationsprogramm nimmt an,
+daß Deine Linux-Sistribution einen Benutzer und eine Gruppe
+„games“ hat.
+
+Wenn nicht, als „root“ beides anlegen, so daß „games“ die Hauptgruppe von „games“ wird.
+Spieler, die selbst Spieldateien installieren können sollen, müssen in dieser Gruppe sein
+(oder das als „root“ machen).
+
+2.2) Installationsprogramm starten
+
+./csbwin-linux-install.sh
+
+Spiele werden in Unterverzeichnisse gelegt,
+die folgenden Beispiele nicht wörtlich abtippen,
+die Begriffe mit den „$“ durch die echten Namen ersetzen!
+
+2.1) Spiel mit Verzeichnisstruktur im ZIP:
+
+cd /usr/local/share/games/CSBwin
+unzip $SPIELNAME.zip
+
+2.2) „Flache“ ZIP-Datei ohne Unterverzeichnisse drin:
+
+cd /usr/local/share/games/CSBwin
+mkdir $SPIELNAME
+cd $SPIELNAME
+unzip $DOWNLOADPFAD/$SPIEL.zip
+
+3) Ausführen
+
+Als normaler Benutzer (NICHT ROOT):
+
+csbwin.sh $SPIELNAME
+
+Der Name muß der eines Unterverzeichnisses von Punkt 2) sein.
+Darin muß eine Spieldatei mit dem Namen „dungeon.dat“ liegen.

@@ -1,0 +1,195 @@
+// there are 12 ornates
+
+enum ORNATETYPE
+{
+ornate_SquareGrid		=  0,
+ornate_MetalBars		=  1,
+ornate_Jewels			=  2,
+ornate_WoodVen			=  3,
+ornate_ArchedGrid		=  4,
+ornate_BlockLock		=  5,
+ornate_CornerMetal		=  6,
+ornate_Ebony			=  7,
+ornate_RedTriangleLock		=  8,
+ornate_TriangleLock		=  9,	// never used in DM nor CSB
+ornate_BlueField		= 10,
+ornate_DamagedMetal		= 11
+};
+
+char *OrnateNames[12] =
+{
+	"SQUARE GRID",
+	"METAL BARS",
+	"JEWELS",
+	"WOOD VEN",
+	"ARCHED GRID",
+	"BLOCK LOCK",
+	"CORNER METAL",
+	"EBONY",
+	"RED TRIANGLE LOCK",
+	"TRIANGLE LOCK",
+	"BLUE FORCE FIELD",
+	"DAMAGED METAL"
+};
+
+//..............................................................................
+
+// 9 types for floor graphics
+
+enum FLOORTYPE
+{
+floor_SquareGrid	= 0,
+floor_SquarePad	= 1,
+floor_PoisonPuddle	= 2,
+floor_RoundGrid	= 3,
+floor_HexagonalPad	= 4,
+floor_FirePot		= 5,
+floor_GreyMark		= 6,
+floor_TinyPad		= 7,
+floor_WaterPuddle	= 8
+};
+
+char *FloorNames[9] =
+{
+	"SQUARE GRID",
+	"SQUARE PAD",
+	"POISON PUDDLE",
+	"ROUND GRID",
+	"HEXAGONAL PAD",
+	"FIRE POT",
+	"GREY MARK",
+	"TINY PAD",
+	"WATER PUDDLE"
+};
+
+//..............................................................................
+
+// 60 types for wall graphics
+
+enum WALLTYPE
+{
+wall_Nothing			=	0x00,
+wall_SquareAlcove		=	0x01,
+wall_ViAltar			=	0x02,
+wall_OrnateAlcove		=	0x03,
+wall_Hook				=	0x04,
+wall_BlockLock			=	0x05,
+wall_WoodRing			=	0x06,
+wall_SmallSwitch		=	0x07,
+wall_Dent1				=	0x08,
+wall_Dent2				=	0x09,
+wall_IronRing			=	0x0a,
+wall_Crack				=	0x0b,
+wall_SlimeOutlet		=	0x0c,
+wall_Point				=	0x0d,
+wall_TinySwitch		=	0x0e,
+wall_GreenButtonOut	=	0x0f,
+wall_BlueButtonOut		=	0x10,
+wall_CoinSlot			=	0x11,
+wall_DoubleLock		=	0x12,
+wall_SquareLock		=	0x13,
+wall_WingedLock		=	0x14,
+wall_OnyxLock			=	0x15,
+wall_StoneLock			=	0x16,
+wall_CrossLock			=	0x17,
+wall_JeweledLock		=	0x18,
+wall_SkeletonLock		=	0x19,
+wall_GoldLock			=	0x1a,
+wall_TurquoiseLock		=	0x1b,
+wall_EmeraldLock		=	0x1c,
+wall_RubyLock			=	0x1d,
+wall_RaLock			=	0x1e,
+wall_MasterLock		=	0x1f,
+wall_GemHole			=	0x20,
+wall_Slime				=	0x21,
+wall_Grate				=	0x22,
+wall_Fountain			=	0x23,
+wall_Menacles			=	0x24,
+wall_DemonFace			=	0x25,
+wall_TorchHolderEmpty	=	0x26,
+wall_DragonClaws		=	0x27,
+wall_PoisonHoles		=	0x28,
+wall_FireballHoles		=	0x29,
+wall_DaggerHoles		=	0x2a,
+wall_HeroMirror		=	0x2b,
+wall_LeverUp			=	0x2c,
+wall_LeverDown			=	0x2d,
+wall_TorchHolderFull	=	0x2e,
+wall_RedButtonOut		=	0x2f,
+wall_EyeSwitch			=	0x30,
+wall_BigSwitchOut		=	0x31,
+wall_CrackSwitchOut	=	0x32,
+wall_GreenButtonIn		=	0x33,
+wall_BlueButtonIn		=	0x34,
+wall_RedButtonIn		=	0x35,
+wall_BigSwitchIn		=	0x36,
+wall_CrackSwitchIn		=	0x37,
+wall_Amalgam			=	0x38,
+wall_PoweredAmalgam	=	0x39,
+wall_BurntAmalgam		=	0x3a,
+wall_EvilOutside		=	0x3b,
+};
+
+char *WallNames[60] =
+{
+	"UNREADABLE TEXT",
+	"SQUARE ALCOVE",
+	"VI ALTAR",
+	"ORNATE ALCOVE",
+	"HOOK",
+	"BLOCK LOCK",
+	"WOOD RING",
+	"SMALL SWITCH",
+	"DENT 1",
+	"DENT 2",
+	"IRON RING",
+	"CRACK",
+	"SLIME OUTLET",
+	"POINT",
+	"TINY SWITCH",
+	"GREEN BUTTON (OUT)",
+	"BLUE BUTTON (OUT)",
+	"COIN SLOT",
+	"DOUBLE LOCK",
+	"SQUARE LOCK",
+	"WINGED LOCK",
+	"ONYX LOCK",
+	"STONE LOCK",
+	"CROSS LOCK",
+	"JEWELED LOCK",
+	"SKELETON LOCK",
+	"GOLD LOCK",
+	"TURQUOISE LOCK",
+	"EMERALD LOCK",
+	"RUBY LOCK",
+	"RA LOCK",
+	"MASTER LOCK",
+	"GEM HOLE",
+	"SLIME",
+	"GRATE",
+	"FOUNTAIN",
+	"MENACLES",
+	"DEMON FACE",
+	"TORCH HOLDER (EMPTY)",
+	"DRAGON CLAWS",
+	"POISON HOLES",
+	"FIREBALL HOLES",
+	"DAGGER HOLES",
+	"CHAMPION MIRROR",
+	"LEVER (UP)",
+	"LEVER (DOWN)",
+	"TORCH HOLDER (FULL)",
+	"RED BUTTON (OUT)",
+	"EYE SWITCH",
+	"BIG SWITCH (OUT)",
+	"CRACK SWITCH (OUT)",
+	"GREEN BUTTON (IN)",
+	"BLUE BUTTON (IN)",
+	"RED BUTTON (IN)",
+	"BIG SWITCH (IN)",
+	"CRACK SWITCH (IN)",
+	"AMALGAM",
+	"POWERED AMALGAM",
+	"BURNT AMALGAM",
+	"EVIL OUTSIDE"
+};

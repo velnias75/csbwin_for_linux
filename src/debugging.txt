@@ -1,0 +1,177 @@
+Starting debug
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Clearing Mouse Handler
+ Clear lastTime
+Left Button Down
+Clearing Mouse Handler
+ Clear lastTime
+Something in Mouse Queue
+Check for thaw command; Num = 215; gameFrozen = 0
+lastTime = 0; d.Time = 63; delta = 0; Playfile.IsOpen=0
+Get Mouse queue num
+Num = 215;  Check for num == 80
+MouseClick type = 215
+ Clear lastTime
+Enter Wait for menu select
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Left Button Down
+Something in Mouse Queue
+Check for thaw command; Num = 210; gameFrozen = 0
+lastTime = 0; d.Time = 0; delta = 0; Playfile.IsOpen=0
+Get Mouse queue num
+Num = 210;  Check for num == 80
+MouseClick type = 210
+Return from mouse events. intResult=0  Word11764=1 
+ Clear lastTime
+Enter Wait for menu select
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Return from mouse events. intResult=0  Word11764=99 
+Left Button Down
+Something in Mouse Queue
+Check for thaw command; Num = 210; gameFrozen = 0
+lastTime = 0; d.Time = 26; delta = 0; Playfile.IsOpen=0
+Get Mouse queue num
+Num = 210;  Check for num == 80
+MouseClick type = 210
+Return from mouse events. intResult=0  Word11764=1 

@@ -1,0 +1,168 @@
+=====================================================================
+Updated for Version 12.0 by Christoph Franzen
+
+This version has a new "autogen.sh" file.
+
+Make it executable and run it as "./autogen.sh";
+this will perform the whole build process for you.
+You will find "CSBwin" in the "src" subdirecory if
+the build dependencies are fulfilled; if not,
+the process will stop and hopefully give you a hint
+about the missing package.
+
+You can change this file to suit your needs.
+Edit only the "autogen.sh" in the main folder,
+leave "macros/autogen.sh" as is.
+
+1) Dynamic window sizes
+
+In this version, the "Hermes" library is disbled,
+because I had it properly installed, but it was
+nonetheless not found by the "configure" process.
+
+To re-enable it, delete "--disable-dynwinsize" from the "PARAM" line.
+
+Without "Hermes", you can still switch between different screen
+resolutions, but it might be necessary to resize the window by hand.
+Resizing the window does not change the resolution.
+
+2) GTK+ 1.2
+
+This version has GTK enabled, so you get a second window with
+menus containing some useful switches at the expense of requiring
+the old GTK 1.2 libraries to be installed.
+
+To disable GTK, delete "--enable-oldgtk" from the "PARAM" line.
+
+This will build a version with only the command line switches and
+the main game interface and no menus, which doesn't depend on GTK.
+
+3) Remaining bugs
+
+You should save your game frequently and reserve one save slot
+to keep track of your progress, because the game can crash at
+any time.
+
+Playing Conflux 3.5B8 showed the following errors here:
+
+a) The sound eventually stops working. Restarting "CSBwin" helps.
+   It might be necessary to restart Esound/ESD as well.
+b) The game will crash with "system error 45" from time to time.
+   This cannot be avoided, as far as I know.
+
+Message boxes complaining about "Excessive DSA activity",
+or "Too many monsters of size 4" can be safely ignored,
+you must confirm them before continuing, however.
+
+=====================================================================
+
+	Dependencies
+	
+	* You need SDL properly installed on your system.
+	* Hermes for dynamicly stretched windows (optional).
+	* You need esd for sound (optional).
+	* You need GTK 1.2 to enable a menu (optional).
+
+	To compile CSB for linux, type
+	
+		chmod +x autogen.sh
+		./autogen.sh
+		make
+
+	Special options are
+
+		./autogen.sh --enable-release
+			Release compilation removes the
+			debug information from the binary.
+			No optimazation of the code is done
+			if you compile without release enabled.
+	
+		./autogen.sh --disable-dynwinsize
+			This option is more an experimental option.
+			This compilation removes the need of Hermes
+			but the screen will only have four different
+			fixed sizes:
+				320 * 200 pixels.
+				640 * 400
+				960 * 600
+				1280 * 800
+			With Hermes the screen size had been a
+			multipel of 320 * 240 instead, which looks
+			better.
+
+		./autogen.sh --enable-efence
+			This option is only usefull when debugging.
+			Enable this to compile with electric fence.
+
+		./autogen.sh --disable-esound
+			If you want to disable esound. Sound will
+			still be able to pipe to stdout. Be warned
+			though, that the sound pipe will give a
+			quite crappy sound experience.
+
+		./autogen.sh --enable-oldgtk
+			By using gtk1.2 you will get a menu which
+			contains miscellaneous options.
+
+	You also need the following files in order to play the game:
+	
+		dungeon.dat hcsb.dat hcsb.hct mini.dat
+		graphics.dat config.linux
+	
+	Those files are not distributed with the source code. You can
+	download them separately from http://dmweb.free.fr.
+	
+	If the files are located in different directories then the following
+	cmd line arguments can be used:
+	
+	  --gamsav <path>
+	  --directory <path>
+	  --module <path>
+	  --root-path <path>
+  	
+	The game does not care which argument is used. The game will
+	search in all directories as specified with the above arguments.
+	But, it will search in *that* order, so --gamsav has the
+	'highest' priority. When a game file is written to a directory the
+	game will also try to write in that order. So if --gamsav is not set,
+	then the game will first of all try to save in your current working
+	directory. If that fails, then it tries in --directory, and so forth.
+
+	  --dungeon <file>
+
+	The dungeon argument is used if you want to play in a certain
+	dungeon. There are some circulating at http://dmweb.free.fr.
+
+	  --timer <number>
+
+	This option will set the internal callback-timer in millisecond.
+	The game is heavenly dependent on the timer. If the game
+	is awfully slow, then you can try to change the timer.
+
+	  --play <file>
+
+	If you have recorded your game play, then you can replay
+	the game as a 'movie' with this option. To record a game
+	you need to press "Record" in the "Misc"-menu when you
+	face the entrance to the dungeon. A word of caution:
+	Be carfull. If you save the game in the recording, then
+	the playback will also save the game, and thus the
+	save file might be overwritten. A recording is great
+	if you want to submitt a bug.
+	
+	  --quick
+
+	With this option set then your playback will be in a LOT
+	faster pace. From the menu, this option is only available
+	during a playback.
+	
+	
+	If you encounters some problem, feel free to contact me
+		Erik Svanberg <svanberg@acc.umu.se>
+
+	If autogen.sh complains about a bad interpreter or that some files
+	is missing, then it could be that those files have there end-of-line
+	in DOS-style ('\n\r'), rather than in Posix style ('\n').
+	If necessery check these files:
+	
+	autogen.sh configure.in Makefile.am macros/autogen.sh src/Makefile.am

@@ -1,0 +1,9 @@
+Dies ist CSBwin für Linux.
+This is CSBwin for Linux.
+
+i486 (32 Bit)
+
+Version: 12.100v0
+
+Play "Dungeon Master", "Chaos Strikes Back", and many custom games.
+Spiele „Dungeon Master“, „Chaos Strikes Back“ und viele „nachempfundene“ Spiele.

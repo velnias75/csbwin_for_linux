@@ -1,0 +1,34 @@
+Chaos Strikes Back was orginally developed for the Atari ST by FTL Software:
+
+	Director ~ ~ ~ ~ Doug Bell
+	asst.director ~ Dennis Walker
+	2nd unit director ~ ~ Mike Newton
+	graphics ~ ~ Andy Jaros
+	graphics ~ ~ David Simon
+	producer ~ ~ Wayne Holden
+
+Backengineering from atari code and port to Windows:
+	Paul Stevens <prsteven@facstaff.wisc.edu>
+
+Port to Linux:
+	Erik Svanberg <svanberg@acc.umu.se>
+		(email expires 2004-06-06)
+	Rebecka Svanberg <vatten@users.sourceforge.net>
+
+Port to MacOS X:
+	Tomas Zahradnicky
+	(http://dmweb.free.fr/?q=node/851)
+
+Port to Nokia 770:
+	Martin <mlvj@yahoo.co.uk>
+
+Port to Pandora Console:
+	Philipp Tull
+	http://www.diamondsword.de/cgi-bin/gitweb.cgi?p=csbwin;a=summary
+ 
+Port to Nokia N900:
+	Maciej Stankiewicz
+
+Minor Linux compatibility changes for version 12.0:
+	Please contact Christoph.Franzen@gmail.com
+	if you've got questions about the current Linux version.

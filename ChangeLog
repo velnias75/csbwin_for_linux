@@ -1,0 +1,87 @@
+[Christoph] 111206
+	Version 12.100v0 corrects hint oracle bug:
+	Earlier versions crashed, if too many "hint items" were present.
+	Only "src/Hint.cpp", version numbering and documentation changed.
+[Christoph] 111122-111127
+	New version is 12.0; updated from Windows version 11.067,
+	minor changes to make it compile on Linux (x86) out of
+	the box again.
+	Hermes not included, because detection fails for me.
+	Sound is half-broken, as well as window-resize.
+[Maciej] 110805   .deb package: 110902
+	Version 11.059 (armel for Nokia N900)
+[Philipp] 110327?
+	Version 11.059 (armel for Pandora)
+[?] 090424?
+	Version 11.014 (x68)
+[?] ?
+	Version 10.0 (x68)
+[Rebecka] 061017
+	Esd broken again.
+[Rebecka] 061015
+	* Various minor tweaks. Added the "soundpipe" ability,
+	because esd-support apparently has been broken with newer versions
+	of esd. One "quicky-fix" have been added because of this,
+	only one channel of esd is supported.
+[Martin] ????
+	Support for the Nokia 770.
+[Erik]	051001
+	* Updated CSBlinux to somewhat 150 CSBwin-versions later.
+	CSBwin/linux now counts as version 9.9.
+	* Rebecka included a function that asks esd if the sound
+	pipe floods over or not. If it does, the sound is cut.
+[Erik]	040906
+	* Updated code from windows version 9.8
+[Rebecka] 040219
+	* Updated code from windows version 9.7
+	* Fixed a chrash when playing Conflux2.
+	* Patch to handle absolute pathways correctly.
+	* AITrace included.
+	* AUDIO now uses 16 channels to prevent "sound lag".
+	Would have been a more "atarish" fix to simply cut the sounds short,
+	but esd doesn't support this.
+	* Improved support for systems whithout libHermes.
+[Erik] 030728
+	* Updated code from windows version 9.6
+[Rebecka] 030503
+	* Small bugfix for static sized windows.
+	Red and blue has been swapped.
+[Erik] 030503
+	* Removed support for Gnome.
+	* Added an extra slash after a path-string.
+[Erik] 030206
+	* Implemented an alternative menu in native GTK.
+[Rebecka] 030201
+	* Experimental optimization of the graphics using
+	'dirty rectangles'. Comments are appreciated.
+	* Even more experimental support for systems whithout
+	libHermes (solaris).
+[Erik] 030129
+	* Timer can now be set from config.linux
+[Erik] 030124
+	* Moved class FILENAME to a seperate file for Linux:
+	LinuxFileName.inl
+[Erik] 030122
+	* Modifed menu to behave as the windows-version.
+	* Corrected some cmd line errors.
+[Erik] 021219
+	* Added Linux-specific file: config.linux
+[Erik] 021203
+	* Removed SDL sound support. Using esd for now.
+	* Added Linux-specific file: LinCSBUI.cpp
+[Erik] 021201
+	* Updated code from windows version 9.4
+[Erik] 021120
+	* Moved the preprocessor magic to stdafx.h.
+[Erik] 020922
+	* Updated code from windows version 9.2
+[Rebecka] 020922
+	* Added a lot of preprocessor magic to the headers.
+	* Made a C-converter for the ST-graphics to use in Linux.
+[Erik] 020922
+	* Added some SDL specific keycodes to config.txt
+	* Added SDL as handler for user-events and graphics..
+	* Created a Gnome-menu.
+	* Added Linux-specific files: LinScreen.cpp and CSBlinux.cpp.
+	* Added autogen support for Linux.
+EOF

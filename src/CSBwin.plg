@@ -1,0 +1,75 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: CSBwin - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Release/CSBwin.res" /d "NDEBUG" "D:\Projects\CSB\CSBwin\src\CSBwin.rc"" 
+Creating temporary file "C:\Users\dad\AppData\Local\Temp\RSP6EB1.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib winmm.lib /nologo /subsystem:windows /profile /map:"Release/CSBwin.map" /machine:I386 /out:"Release/CSBwin.exe" 
+.\Release\AsciiDump.obj
+.\Release\Attack.obj
+.\Release\Bitmaps.obj
+.\Release\Chaos.obj
+.\Release\Character.obj
+.\Release\Code11f52.obj
+.\Release\Code13ea4.obj
+.\Release\Code17818.obj
+.\Release\Code1f9e6.obj
+.\Release\Code222ea.obj
+.\Release\Code390e.obj
+.\Release\Code51a4.obj
+.\Release\Codea59a.obj
+.\Release\CSBCode.obj
+.\Release\CSBUI.obj
+.\Release\CSBwin.obj
+.\Release\data.obj
+.\Release\DSA.obj
+.\Release\Graphics.obj
+.\Release\Hint.obj
+.\Release\Magic.obj
+.\Release\md5C.obj
+.\Release\Menu.obj
+.\Release\Monster.obj
+.\Release\Mouse.obj
+.\Release\MoveObject.obj
+.\Release\NewBugs.obj
+.\Release\RC4.obj
+.\Release\Recording.obj
+.\Release\SaveGame.obj
+.\Release\SmartDiscard.obj
+.\Release\Sound.obj
+.\Release\Statistics.obj
+.\Release\StdAfx.obj
+.\Release\system.obj
+.\Release\Timer.obj
+.\Release\Translation.obj
+.\Release\utility.obj
+.\Release\VBL.obj
+.\Release\Viewport.obj
+.\Release\WinScreen.obj
+.\Release\CSBwin.res
+]
+Creating command line "link.exe @C:\Users\dad\AppData\Local\Temp\RSP6EB1.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Linking...
+Creating temporary file "C:\Users\dad\AppData\Local\Temp\RSP7624.bat" with contents
+[
+@echo off
+copy release\CSBwin.exe .\*.*
+]
+Creating command line "C:\Users\dad\AppData\Local\Temp\RSP7624.bat"
+copy release executable
+        1 file(s) copied.
+
+
+
+<h3>Results</h3>
+CSBwin.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
