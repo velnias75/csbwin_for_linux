@@ -5,7 +5,7 @@ AC_INIT([CSBwin_for_Linux],12.100)
 AC_PREREQ(2.57)
 AC_CONFIG_SRCDIR(src/Code222ea.cpp)
 AC_CONFIG_MACRO_DIRS([m4])
-AM_INIT_AUTOMAKE([1.4 foreign])
+AM_INIT_AUTOMAKE([1.4 foreign dist-xz no-dist-gzip])
 
 dnl AC_PREREQ(2.57)
 dnl AC_INIT(src/Code222ea.cpp)
@@ -127,6 +127,7 @@ AC_SUBST(LINK_HERMES)
 ##AC_CONFIG_HEADERS([config.h:config.h.in])
 AC_CONFIG_FILES([Makefile \
 src/Makefile \
+data/Makefile \
 stamp.h])
 ##AC_OUTPUT([Makefile \
 ##src/Makefile \
