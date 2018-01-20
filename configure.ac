@@ -63,7 +63,7 @@ AC_HEADER_STDC
 
 
 
-AC_PATH_PROG(GLIB_CONFIG, glib-config, AC_ERROR("I need glib"))
+#AC_PATH_PROG(GLIB_CONFIG, glib-config, AC_ERROR("I need glib"))
 PKG_CHECK_MODULES(GLIB, glib-2.0 >= 1.2.0 )
 
 
