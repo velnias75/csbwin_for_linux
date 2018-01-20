@@ -130,7 +130,7 @@ extern i32 latestCharXlate;
 const char *helpMessage = "CSBlinux will need the orginal datafiles "
 			"for either Chaos Strikes Back,\n"
 			"or Dungeon Master in your current working directory.\n"
-			"If the files are located somewhere else try\n --help for some usefull comandlinde arguments.\n"
+			"If the files are located somewhere else try\n --help for some useful comandline arguments.\n"
 			"\nMake sure that you have these files\n"
 			"(and that they are spelled with lower case)\n"
 			"   dungeon.dat\n"
