@@ -17,3 +17,5 @@ ltmain.sh
 missing
 stamp.h
 src/CSBwin
+.kdev4/
+CSBWin.kdev4

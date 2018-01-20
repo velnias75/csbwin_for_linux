@@ -421,9 +421,12 @@ void DBank::Initialize(void) // TAG00332a
   Pointer22904 = "FORMAT FLOPPY";
   Pointer22908 = "OK";
   Pointer22912 = "CANCEL";
-  strcpy(&Byte23008,"A:\\csbgame.dat");
-  strcpy(&Byte23024,"A:\\csbgame.bak");
-  strcpy(&Byte23030,"A:\\F");
+  //strcpy(&Byte23008,"A:\\csbgame.dat");
+  //strcpy(&Byte23024,"A:\\csbgame.bak");
+  //strcpy(&Byte23030,"A:\\F");
+  Byte23008 = "A:\\csbgame.dat";
+  Byte23024 = "A:\\csbgame.bak";
+  Byte23030 = "A:\\F";
   UseByteCoordinates = 0;
   Pointer23040 = (pnt)0x484;
   CurrentSound = -1;
