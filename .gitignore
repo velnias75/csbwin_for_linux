@@ -19,3 +19,4 @@ stamp.h
 src/CSBwin
 .kdev4/
 CSBWin.kdev4
+CSBwin-linux.sh

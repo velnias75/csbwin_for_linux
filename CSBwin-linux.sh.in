@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ ! -d "${HOME}/.@PACKAGE@" ]; then
+	mkdir -p "${HOME}/.@PACKAGE@"
+fi
+
+cd "${HOME}/.@PACKAGE@"
+
+CSBwin --verylarge --directory @datadir@ --sound-pipe | aplay -q -t raw -M -f s8 -c 1 -r 5120 -
