@@ -20,7 +20,7 @@
   const int HEIGHT = 480;
 #endif//USE_PARAGUI
 
-#define APPTITLE	"CSBwin"
+#define APPTITLE	"CSBwin for Linux (with modifications made by Heiko Schaefer)"
 #define APPVERSION 	"12.100"
 #define APPVERMINOR	"v0" /* linux-only update*/
 
