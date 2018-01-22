@@ -20,3 +20,6 @@ src/CSBwin
 .kdev4/
 CSBWin.kdev4
 CSBwin-linux.sh
+src/.libs/
+src/*.la
+src/*.lo

@@ -1,6 +1,8 @@
 # src/Makefile.am
 # Is read by configure
 
+noinst_LTLIBRARIES = libCSBwin.la libCSBplatform.la
+
 bin_PROGRAMS = CSBwin
 #Chaos_strikes_back_for_linux
 ##some_name_LDADD=$(top_builddir)/src/gtksdl-0.2/libgtksdl.la
@@ -9,7 +11,8 @@ bin_PROGRAMS = CSBwin
 # FIXME: Platform specific files should go here... but I don't know if anything but linux really use this.
 #
 # Platform=Linux
-PLATFORM_SPECIFIC = LinScreen.cpp LinCSBUI.cpp CSBlinux.cpp
+PLATFORM_SPECIFIC_BIN = CSBlinux.cpp
+PLATFORM_SPECIFIC_LIB = LinScreen.cpp LinCSBUI.cpp
 #Platform = Macintosh
 #PLATFORM_SPECIFIC = MacScreen.cpp
 #Platform = Windows
@@ -43,10 +46,10 @@ CSBwin_headers = \
 	LinuxFileName.inl \
 	Recording.h \
 	Prefix.h
-	
 #	Transition.h
 
-CSBwin_SOURCES = \
+libCSBwin_la_CXXFLAGS = -ffunction-sections -fdata-sections
+libCSBwin_la_SOURCES = \
 	$(CSBwin_headers) \
 	CSBUI.cpp \
 	Statistics.cpp \
@@ -87,8 +90,17 @@ CSBwin_SOURCES = \
 	md5C.cpp \
 	MoveObject.cpp \
 	Recording.cpp \
-	Translation.cpp \
-	$(PLATFORM_SPECIFIC)
+	Translation.cpp
+
+libCSBplatform_la_CXXFLAGS = -ffunction-sections -fdata-sections
+libCSBplatform_la_SOURCES = \
+	$(PLATFORM_SPECIFIC_LIB)
+
+CSBwin_SOURCES = \
+	$(PLATFORM_SPECIFIC_BIN)
+
+CSBwin_LDFLAGS = -Wl,--gc-sections
+CSBwin_LDADD = libCSBplatform.la libCSBwin.la
 
 #	Swoosh.c
 #	Transition.c

@@ -12,8 +12,7 @@ dnl AC_INIT(src/Code222ea.cpp)
 dnl AM_INIT_AUTOMAKE([CSBwin-for-Linux],12.100)
 dnl AM_CONFIG_HEADER(config.h)
 
-
-
+LT_INIT([static disable-shared no-pic])
 
 dnl Linux will require the following parameters to compile
 dnl correctly when used with gcc/g++.
