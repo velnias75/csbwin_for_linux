@@ -49,8 +49,12 @@ CSBwin_headers = \
 	CSBTypes.h \
 	LinuxFileName.inl \
 	Recording.h \
-	Prefix.h
+	Prefix.h \
+	sndhead.h
 #	Transition.h
+
+AM_CXXFLAGS = -ffast-math -fno-inline-functions -fno-inline-functions-called-once -fno-inline-small-functions
+AM_CFLAGS = -ffast-math -fno-inline-functions -fno-inline-functions-called-once -fno-inline-small-functions
 
 libCSBwin_la_CXXFLAGS = $(AM_CXXFLAGS) -ffunction-sections -fdata-sections
 libCSBwin_la_CFLAGS = $(AM_CFLAGS) -ffunction-sections -fdata-sections

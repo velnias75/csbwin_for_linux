@@ -34,7 +34,7 @@
 extern i32 NoSpeedLimit;
 extern i32 VBLMultiplier;
 
-struct SNDHEAD
+/*struct SNDHEAD
 {
   i8  byte0[4];           //"RIFF"
   i32 Size;               //  6076  // #bytes after this integer
@@ -53,9 +53,9 @@ struct SNDHEAD
   i8  byte50[4];          // "data"
   i32 numSamples54;       //
   i8  sample58[1];
-};
+};*/
 
-
+#include "sndhead.h"
 
 ui8 ChannelA, ChannelB, ChannelC;
 
@@ -185,7 +185,7 @@ char *SoundDecode(pnt pGraphic, i32 numSample, i32 volume)
     {
       // Rebuild volume table
       i32 i;
-      for (i=0; i<128; i++) 
+      for (i=0; i<128; i++)
         volTable[i] = (ui8)((i-128-volume/2)/volume + 128);
       for (i=128; i<256; i++)
         volTable[i] = (ui8)((i-128+volume/2)/volume + 128);
@@ -316,7 +316,7 @@ char *SOUNDDATA::Decode(i32 volume)
     {
       // Rebuild volume table
       i32 i;
-      for (i=0; i<128; i++) 
+      for (i=0; i<128; i++)
         volTable[i] = (ui8)((i-128-volume/2)/volume + 128);
       for (i=128; i<256; i++)
         volTable[i] = (ui8)((i-128+volume/2)/volume + 128);
@@ -352,7 +352,7 @@ char *SOUNDDATA::Decode(i32 volume)
     memcpy(WavBuf->sample58, m_sound, m_size);
   };
   return (pnt)WavBuf;
-}  
+}
 
 // Made this a class so the destructor will
 // clean things up when we stop the program.
@@ -581,7 +581,7 @@ void SOUNDER::AddWave(char *wave, i32 attenuation)
     //m_attenuation[0] = attenuation;
   }
   else
-  { 
+  {
     UI_StopSound();
     //UI_free(m_wave[0]);
     //m_wave[0] = NULL;
@@ -600,7 +600,7 @@ void SOUNDER::Sound(char *wave, i32 attenuation)
   // it again after you call us to play it!
   ASSERT(m_wave[0] != wave,"wave");
   ASSERT(wave != NULL,"wave");
-  if (VBLMultiplier != 1) 
+  if (VBLMultiplier != 1)
   {
     UI_free(wave);
     return;
@@ -704,7 +704,7 @@ i32 SoundFilter(i32 soundNumber, i32 highVolume, const LOCATIONREL *soundLocr)
             timer.timerUByte7((ui8)locr.y);
             timer.timerUByte6((ui8)locr.x);
             timer.timerTime   = locr.l << 24;
-    
+
             pDSAparameters[1+0] = soundNumber+1;
             pDSAparameters[1+1] = highVolume;
             pDSAparameters[1+2] = distanceSquared;
@@ -723,8 +723,8 @@ i32 SoundFilter(i32 soundNumber, i32 highVolume, const LOCATIONREL *soundLocr)
           };
         };
       };
-    };    
-    if (filterActive) 
+    };
+    if (filterActive)
     {
       filterActive = false;
       return 0;
@@ -973,7 +973,7 @@ bool SOUNDDATA::ReadSound(i32 soundNum)
   ui32 i, fileSize;
   fileData.m = ReadCSBgraphic(
        CGT_Sound,
-       soundNum, 
+       soundNum,
        44,
        &fileSize,
        true,
