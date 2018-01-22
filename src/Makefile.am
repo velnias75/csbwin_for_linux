@@ -1,6 +1,10 @@
 # src/Makefile.am
 # Is read by configure
 
+EXTRA_DIST = CSBwin.bmp
+
+pkgdata_DATA = $(EXTRA_DIST)
+
 noinst_LTLIBRARIES = libCSBwin.la libCSBplatform.la
 
 bin_PROGRAMS = CSBwin
@@ -48,7 +52,8 @@ CSBwin_headers = \
 	Prefix.h
 #	Transition.h
 
-libCSBwin_la_CXXFLAGS = -ffunction-sections -fdata-sections
+libCSBwin_la_CXXFLAGS = $(AM_CXXFLAGS) -ffunction-sections -fdata-sections
+libCSBwin_la_CFLAGS = $(AM_CFLAGS) -ffunction-sections -fdata-sections
 libCSBwin_la_SOURCES = \
 	$(CSBwin_headers) \
 	CSBUI.cpp \
@@ -92,14 +97,16 @@ libCSBwin_la_SOURCES = \
 	Recording.cpp \
 	Translation.cpp
 
-libCSBplatform_la_CXXFLAGS = -ffunction-sections -fdata-sections
+libCSBplatform_la_CXXFLAGS = $(AM_CXXFLAGS) -ffunction-sections -fdata-sections
+libCSBplatform_la_CFLAGS = $(AM_CFLAGS) -ffunction-sections -fdata-sections
 libCSBplatform_la_SOURCES = \
 	$(PLATFORM_SPECIFIC_LIB)
 
+CSBwin_CPPFLAGS = $(AM_CPPFLAGS) -DCSB_ICON=\"$(DESTDIR)/$(pkgdatadir)/CSBwin.bmp\"
 CSBwin_SOURCES = \
 	$(PLATFORM_SPECIFIC_BIN)
 
-CSBwin_LDFLAGS = -Wl,--gc-sections
+CSBwin_LDFLAGS = $(AM_LDFLAGS) -Wl,--gc-sections
 CSBwin_LDADD = libCSBplatform.la libCSBwin.la
 
 #	Swoosh.c
