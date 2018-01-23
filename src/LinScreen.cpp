@@ -227,7 +227,7 @@ bool HasScreenChanged(i8 *STScreen,    // First byte to test
                       i32 *pOldChecksum)
 {
     // Note, this solution is NOT reentrant, but I'm not sure how to write GAS code. 
-   int result;
+   int result = 0;
    printf("HasScreenChanged\n");
    /* __asm__ (
     "subl %%edx,%%edx              \n\t" // The summation

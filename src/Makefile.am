@@ -29,7 +29,7 @@ AM_CPPFLAGS = \
 	`$(SDL_CONFIG) --cflags` \
 	@ESD_CONFIG_CFLAGS@ \
 	@GLIB_CFLAGS@ \
-	-Wall -Wextra -Wno-switch -Wno-parentheses -Werror=comment
+	-Wall -Wextra -Wno-switch -Wno-parentheses -Wno-unused
 
 LIBS = \
 	@LINK_EFENCE@ \
