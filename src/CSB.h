@@ -827,18 +827,18 @@ class DB0:public DBCOMMON
              // 0400 means reflect/rotate image randomly to cause appearance of movement
   void swap(void);
 public:
-  const ui8 doorType(void)   {return (UI8)(word2 & 1);};
+  ui8 doorType(void)   {return (UI8)(word2 & 1);};
   void doorType(i32 d){word2=(ui16)((word2&0xfffe)|(d&1));};
     // Each level can have two door types.
-  const i32 ornateness(void){return (word2>>1) & 0xf;};
+  i32 ornateness(void){return (word2>>1) & 0xf;};
   void ornateness(i32 o){word2=(ui16)((word2&0xffe1)|((o&0xf)<<1));};
-  const ui8 mode(void)   {return (UI8)((word2>>5) & 1);}; //up/down
+  ui8 mode(void)   {return (UI8)((word2>>5) & 1);}; //up/down
   void mode(bool b){word2=(ui16)(b?(word2|0x0020):(word2&0xffdf));}; //up/down
-  const bool canOpenWithFireball(void)    {return (word2>>7) & 1;};
+  bool canOpenWithFireball(void)    {return (word2>>7) & 1;};
   void canOpenWithFireball(bool b){word2=(ui16)(b?(word2|0x0080):(word2&0xff7f));};
-  const bool canOpenWithAxe(void) {return (word2>>8) & 1;};
+  bool canOpenWithAxe(void) {return (word2>>8) & 1;};
   void canOpenWithAxe(bool b){word2=(ui16)(b?(word2|0x0100):(word2&0xffef));};
-  const ui8 doorSwitch(void) {return (UI8)((word2>>6) & 1);};
+  ui8 doorSwitch(void) {return (UI8)((word2>>6) & 1);};
   void doorSwitch(bool b){word2=(ui16)(b?(word2|0x0040):(word2&0xffbf));};
 };
 
@@ -1241,8 +1241,8 @@ public:
   const RN contents(void) {return m_contents;};
   RN *pContents(void){return &m_contents;};
   void contents(RN rn) {m_contents = rn;};
-  const i32 word4(void) {return m_word4;};
-  const ui32 uByte6(i32 n) {return m_uByte6[n];};
+  i32 word4(void) {return m_word4;};
+  ui32 uByte6(i32 n) {return m_uByte6[n];};
 };
 
 class DB10:public DBCOMMON  //corn, shank, necklace, miscellaneous
