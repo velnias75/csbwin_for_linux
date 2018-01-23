@@ -740,7 +740,7 @@ i32 CheckSoundQueue(void)
   return sounder.CheckQueue();
 }
 
-
+#if 0
 //*********************************************************
 //
 //*********************************************************
@@ -758,7 +758,8 @@ void TAG001e16(i16 P1)
   dosound((pnt)D6L);
   //D6=saveD6;D7=saveD7;
 }
-/*
+#endif
+#if 0
 //*********************************************************
 // This appears to be the interrupt routine to handle
 // sound timer interrupts.  I think it operates at
@@ -874,7 +875,7 @@ void playSound(i32 soundNum)
 }
 
 */
-
+#endif
 
 
 /*

@@ -1540,7 +1540,7 @@ RESTARTABLE _TAG000ede(const i32 P1, pnt P2)
   RETURN_i16(1);
 }
 
-/*
+#if 0
 //*********************************************
 static ui32 WCSRCSchecksum;
 
@@ -1551,7 +1551,7 @@ static ui32 chaosWCS(void)
   WCSRCSchecksum = 0xffff;
   return temp;
 }
-*/
+#endif
 /*
 static ui32 RCS(i32 handle)
 {
@@ -1602,7 +1602,7 @@ void chaosWCS(i32 *i, i32 n)
 {
   chaosWCS((ui8 *)i, 4*n);
 }
-/*
+
 static void RCS(i32 *i, i32 n)
 {
   RCS((ui8 *)i, 4*n);

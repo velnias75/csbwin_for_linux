@@ -648,8 +648,8 @@ i32 AddSmartDiscard(const char *buf)
   //return 0;
 }
 */
-/*
 
+#if 0
 //************************************************************************
 // Smart Discard definitions
 //
@@ -718,7 +718,7 @@ const char *SmartDiscards[] = {
 "Dragon Steak 150   0  20.0   0.0", // Default goes before Dragon Steak.
  NULL
 };
-*/
+#endif
 
 // ROQUEN: humm...
 #if !defined(_LINUX) //008

@@ -257,11 +257,12 @@ void _CALL7(CODESTATE s,i32 a,i32 b,i32 c,i32 d,i32 e,i32 f,i32 g);
 void _CALL8(CODESTATE s,i32 a,i32 b,i32 c,i32 d,i32 e,i32 f,i32 g,i32 h);
 void _CALL9(CODESTATE s,i32 a,i32 b,i32 c,i32 d,i32 e,i32 f,i32 g,i32 h,i32 i);
 
-//#define CALL(n,f,p1,p2,p3,p4,p5,p6) \
-//  mystate = n; \
-//  _CALL (st_##f,(i32)(p1),(i32)(p2),(i32)(p3),(i32)(p4),(i32)(p5),(i32)(p6)); \
-//  return 0xfafa3434; \
-//return##n:
+/*#define CALL(n,f,p1,p2,p3,p4,p5,p6) \
+  mystate = n; \
+  _CALL (st_##f,(i32)(p1),(i32)(p2),(i32)(p3),(i32)(p4),(i32)(p5),(i32)(p6)); \
+  return 0xfafa3434; \
+return##n:
+*/
 
 #define CALL0(n,f) \
 { mystate = n; \
